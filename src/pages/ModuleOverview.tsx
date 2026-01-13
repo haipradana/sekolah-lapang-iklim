@@ -40,7 +40,7 @@ export default function ModuleOverview() {
 
   return (
     <MainLayout>
-      <div className="p-6 md:p-8 max-w-4xl">
+      <div className="p-6 md:p-8">
         <Breadcrumbs 
           items={[
             { label: 'Modul', href: '/modul' },

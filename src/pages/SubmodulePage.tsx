@@ -1,4 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { QuizCard } from '@/components/common/QuizCard';
@@ -22,13 +23,15 @@ import {
   BookOpen,
   Clock,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  ArrowDown
 } from 'lucide-react';
 
 export default function SubmodulePage() {
   const { moduleId, submoduleSlug } = useParams();
   const navigate = useNavigate();
   const { markSubmoduleComplete, isSubmoduleComplete, saveQuizScore } = useProgress();
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
 
   const module = getModuleById(Number(moduleId));
   const submodule = getSubmoduleBySlug(Number(moduleId), submoduleSlug || '');
@@ -38,6 +41,29 @@ export default function SubmodulePage() {
   const lastModule = modulesData[modulesData.length - 1];
   const lastSubmodule = lastModule?.submodules[lastModule.submodules.length - 1];
   const isFinalSubmodule = module?.id === lastModule?.id && submodule?.slug === lastSubmodule?.slug;
+
+  // Handle scroll to show/hide sticky CTA
+  useEffect(() => {
+    const handleScroll = () => {
+      const quizSection = document.getElementById('quiz-section');
+      if (quizSection) {
+        const rect = quizSection.getBoundingClientRect();
+        const isQuizVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        setShowStickyCTA(!isQuizVisible && window.scrollY > 300);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToQuiz = () => {
+    const quizSection = document.getElementById('quiz-section');
+    if (quizSection) {
+      quizSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   // Map submodule slugs to their card components
   const getContentComponent = () => {
@@ -93,7 +119,21 @@ export default function SubmodulePage() {
 
   return (
     <MainLayout>
-      <div className="p-6 md:p-8 max-w-4xl">
+      {/* Sticky CTA for Quiz */}
+      {showStickyCTA && (
+        <div className="fixed bottom-6 right-6 z-40 animate-in slide-in-from-bottom-5">
+          <Button 
+            onClick={scrollToQuiz}
+            size="lg"
+            className="shadow-lg bg-accent text-accent-foreground hover:bg-accent/90"
+          >
+            <ArrowDown className="mr-2 h-5 w-5 animate-bounce" />
+            Yuk kerjakan kuis!
+          </Button>
+        </div>
+      )}
+
+      <div className="p-6 md:p-8">
         <Breadcrumbs 
           items={[
             { label: 'Modul', href: '/modul' },
@@ -128,23 +168,20 @@ export default function SubmodulePage() {
           </div>
         </div>
 
-        {/* Featured Image */}
-        <div className="relative rounded-xl overflow-hidden mb-8">
-          <img 
-            src={submodule.imageUrl} 
-            alt={submodule.title}
-            className="w-full h-48 md:h-64 object-cover"
-          />
-        </div>
+
 
         {/* Content - Card-based layout */}
         {getContentComponent()}
 
         <Separator className="my-8" />
 
-        {/* Quiz Section */}
-        <div className="mb-10">
-          <h2 className="text-xl font-semibold text-foreground mb-4">
+        {/* Quiz Section - Highlighted */}
+        <div 
+          id="quiz-section" 
+          className="mb-10 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-accent/10 via-accent/5 to-transparent border border-accent/20"
+        >
+          <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+            <span className="inline-block w-1 h-6 bg-accent rounded-full"></span>
             Uji Pemahaman Anda
           </h2>
           <QuizCard key={submodule.quiz.id} quiz={submodule.quiz} onComplete={handleQuizComplete} />

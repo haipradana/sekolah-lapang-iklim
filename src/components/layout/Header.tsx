@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export const Header = ({ onMenuClick, isSidebarOpen }: HeaderProps) => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/90">
       <div className="flex h-16 items-center gap-4 px-4 md:px-6">
         {onMenuClick && (
           <Button
@@ -24,12 +24,7 @@ export const Header = ({ onMenuClick, isSidebarOpen }: HeaderProps) => {
         )}
         
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="relative">
-            <div className="absolute inset-0 bg-primary/20 rounded-full blur-md group-hover:blur-lg transition-all" />
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground">
-              <Cloud className="h-5 w-5" />
-            </div>
-          </div>
+          <img src="/Logo_BMKG.png" alt="BMKG Logo" className="h-10 w-10 object-contain" />
           <div className="hidden sm:block">
             <h1 className="text-sm font-bold text-foreground leading-tight">
               Sekolah Lapang Iklim

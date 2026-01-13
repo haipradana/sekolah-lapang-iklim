@@ -48,11 +48,7 @@ export default function Home() {
           />
         </div>
 
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <Cloud className="absolute top-10 left-[10%] h-16 w-16 text-white/10 animate-float" />
-          <Droplets className="absolute bottom-20 left-[20%] h-12 w-12 text-white/10 animate-float" style={{ animationDelay: '1s' }} />
-        </div>
+
 
         <div className="container relative py-16 md:py-24 z-10">
           <div className="max-w-3xl">
@@ -197,19 +193,17 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-sidebar text-sidebar-foreground py-8">
+      <footer className="py-8" style={{ backgroundColor: '#0F172A' }}>
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-sidebar-accent text-sidebar-accent-foreground">
-                <Cloud className="h-5 w-5" />
-              </div>
+              <img src="/Logo_BMKG.png" alt="BMKG Logo" className="h-10 w-10 object-contain" />
               <div>
-                <p className="font-semibold">Sekolah Lapang Iklim</p>
-                <p className="text-sm text-sidebar-foreground/70">BMKG Staklim DI Yogyakarta</p>
+                <p className="font-semibold text-white">Sekolah Lapang Iklim</p>
+                <p className="text-sm text-white/70">BMKG Staklim DI Yogyakarta</p>
               </div>
             </div>
-            <p className="text-sm text-sidebar-foreground/70">
+            <p className="text-sm text-white/70">
               © 2025 BMKG. Platform Edukasi Iklim.
             </p>
           </div>
