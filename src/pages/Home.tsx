@@ -61,7 +61,7 @@ export default function Home() {
               <span>BMKG Stasiun Klimatologi DI Yogyakarta</span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-6 leading-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
               Sekolah Lapang{' '}
               <span className="text-accent">Iklim</span>
             </h1>
