@@ -124,7 +124,7 @@ export function WeatherElementsCards() {
                   <ul className="space-y-1 text-left w-full">
                     {el.points.map((point, pIndex) => (
                       <li key={pIndex} className="text-base text-muted-foreground flex items-start gap-1.5">
-                        <span className={`h-1.5 w-1.5 rounded-full bg-gradient-to-br ${el.color} shrink-0 mt-1`} />
+                        <span className={`h-1.5 w-1.5 rounded-full bg-gradient-to-br ${el.color} shrink-0 mt-2`} />
                         {point}
                       </li>
                     ))}

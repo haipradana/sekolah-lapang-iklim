@@ -31,19 +31,19 @@ export function WeatherClimateCards() {
           <CardContent className="pt-4">
             <ul className="space-y-2 text-foreground">
               <li className="flex items-start gap-2">
-                <span className="text-primary mt-0.5">•</span>
+                <span className="text-primary mt-1">•</span>
                 <span>Terjadi hari ini</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-primary mt-0.5">•</span>
+                <span className="text-primary mt-1">•</span>
                 <span>Berlaku jam – hari</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-primary mt-0.5">•</span>
+                <span className="text-primary mt-1">•</span>
                 <span>Cepat berubah</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-primary mt-0.5">•</span>
+                <span className="text-primary mt-1">•</span>
                 <span>Berbeda tiap tempat</span>
               </li>
             </ul>
@@ -71,15 +71,15 @@ export function WeatherClimateCards() {
           <CardContent className="pt-4">
             <ul className="space-y-2 text-foreground">
               <li className="flex items-start gap-2">
-                <span className="text-secondary mt-0.5">•</span>
+                <span className="text-secondary mt-1">•</span>
                 <span>Pola 10 – 30 tahun</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-secondary mt-0.5">•</span>
+                <span className="text-secondary mt-1">•</span>
                 <span>Relatif stabil</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-secondary mt-0.5">•</span>
+                <span className="text-secondary mt-1">•</span>
                 <span>Berdasarkan rata-rata</span>
               </li>
               <li className="flex items-start gap-2">
