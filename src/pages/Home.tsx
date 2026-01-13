@@ -34,12 +34,24 @@ export default function Home() {
     <MainLayout showSidebar={false}>
       {/* Hero Section */}
       <section className="relative overflow-hidden gradient-hero text-white">
-        {/* Animated background elements */}
+        {/* Farmer image with gradient fade to left */}
         <div className="absolute inset-0 overflow-hidden">
+          <div 
+            className="absolute top-0 right-0 h-full w-[70%] md:w-[60%] lg:w-[55%]"
+            style={{
+              backgroundImage: 'url(/img/petani-homepage.webp)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center top',
+              maskImage: 'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 40%, rgba(0,0,0,0.4) 70%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 40%, rgba(0,0,0,0.4) 70%, transparent 100%)',
+            }}
+          />
+        </div>
+
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <Cloud className="absolute top-10 left-[10%] h-16 w-16 text-white/10 animate-float" />
-          <Sun className="absolute top-20 right-[15%] h-20 w-20 text-yellow-300/20 animate-pulse-soft" />
           <Droplets className="absolute bottom-20 left-[20%] h-12 w-12 text-white/10 animate-float" style={{ animationDelay: '1s' }} />
-          <Wind className="absolute bottom-32 right-[25%] h-14 w-14 text-white/10 animate-float" style={{ animationDelay: '2s' }} />
         </div>
 
         <div className="container relative py-16 md:py-24">
