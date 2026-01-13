@@ -34,10 +34,10 @@ export default function Home() {
     <MainLayout showSidebar={false}>
       {/* Hero Section */}
       <section className="relative overflow-hidden gradient-hero text-white">
-        {/* Farmer image with gradient fade to left */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Farmer image with gradient fade to left - hidden on mobile */}
+        <div className="absolute inset-0 overflow-hidden hidden md:block">
           <div 
-            className="absolute top-0 right-0 h-full w-[70%] md:w-[60%] lg:w-[55%]"
+            className="absolute top-0 right-0 h-full w-[60%] lg:w-[55%]"
             style={{
               backgroundImage: 'url(/img/petani-homepage.webp)',
               backgroundSize: 'cover',
@@ -54,19 +54,19 @@ export default function Home() {
           <Droplets className="absolute bottom-20 left-[20%] h-12 w-12 text-white/10 animate-float" style={{ animationDelay: '1s' }} />
         </div>
 
-        <div className="container relative py-16 md:py-24">
+        <div className="container relative py-16 md:py-24 z-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-sm mb-6">
               <MapPin className="h-4 w-4" />
               <span>BMKG Stasiun Klimatologi DI Yogyakarta</span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-6 leading-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 900 }}>
               Sekolah Lapang{' '}
               <span className="text-accent">Iklim</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
+            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>
               Platform pembelajaran interaktif untuk memahami cuaca, iklim, dan pemanfaatannya 
               bagi sektor pertanian di DI Yogyakarta.
             </p>
