@@ -175,13 +175,13 @@ export default function SubmodulePage() {
 
         <Separator className="my-8" />
 
-        {/* Quiz Section - Highlighted */}
+        {/* Quiz Section - Neutral styling */}
         <div 
           id="quiz-section" 
-          className="mb-10 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-accent/10 via-accent/5 to-transparent border border-accent/20"
+          className="mb-10 p-6 md:p-8 rounded-2xl bg-muted/30 border border-border"
         >
           <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-            <span className="inline-block w-1 h-6 bg-accent rounded-full"></span>
+            <span className="inline-block w-1 h-6 bg-primary rounded-full"></span>
             Uji Pemahaman Anda
           </h2>
           <QuizCard key={submodule.quiz.id} quiz={submodule.quiz} onComplete={handleQuizComplete} />
