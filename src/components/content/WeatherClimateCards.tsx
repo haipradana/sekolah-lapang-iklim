@@ -24,7 +24,7 @@ export function WeatherClimateCards() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-primary">CUACA</h3>
-                <p className="text-sm text-muted-foreground">Kondisi udara jangka pendek</p>
+                <p className="text-base text-muted-foreground">Kondisi udara jangka pendek</p>
               </div>
             </div>
           </CardHeader>
@@ -48,7 +48,7 @@ export function WeatherClimateCards() {
               </li>
             </ul>
             <div className="mt-4 pt-4 border-t border-primary/20">
-              <p className="text-sm text-muted-foreground italic">
+              <p className="text-base text-muted-foreground italic">
                 <span className="font-medium text-foreground">Contoh:</span> Pagi hujan deras, siang cerah berawan
               </p>
             </div>
@@ -64,7 +64,7 @@ export function WeatherClimateCards() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-secondary">IKLIM</h3>
-                <p className="text-sm text-muted-foreground">Pola cuaca jangka panjang</p>
+                <p className="text-base text-muted-foreground">Pola cuaca jangka panjang</p>
               </div>
             </div>
           </CardHeader>
@@ -88,7 +88,7 @@ export function WeatherClimateCards() {
               </li>
             </ul>
             <div className="mt-4 pt-4 border-t border-secondary/20">
-              <p className="text-sm text-muted-foreground italic">
+              <p className="text-base text-muted-foreground italic">
                 <span className="font-medium text-foreground">Contoh:</span> Indonesia beriklim tropis sepanjang tahun
               </p>
             </div>

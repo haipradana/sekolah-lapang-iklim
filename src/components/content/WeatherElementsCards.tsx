@@ -115,15 +115,15 @@ export function WeatherElementsCards() {
                   <div className={`p-3 rounded-xl bg-gradient-to-br ${el.color} text-white mb-2`}>
                     <ElIcon className="h-5 w-5" />
                   </div>
-                  <h3 className="font-semibold text-foreground text-sm mb-1">
+                  <h3 className="font-semibold text-foreground text-base mb-1">
                     {el.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground mb-2">
+                  <p className="text-base text-muted-foreground mb-2">
                     {el.description}
                   </p>
                   <ul className="space-y-1 text-left w-full">
                     {el.points.map((point, pIndex) => (
-                      <li key={pIndex} className="text-xs text-muted-foreground flex items-start gap-1.5">
+                      <li key={pIndex} className="text-base text-muted-foreground flex items-start gap-1.5">
                         <span className={`h-1.5 w-1.5 rounded-full bg-gradient-to-br ${el.color} shrink-0 mt-1`} />
                         {point}
                       </li>
@@ -159,7 +159,7 @@ export function WeatherElementsCards() {
         <Card className={`${currentElement.bgColor} border-0 shadow-md transition-all duration-300`}>
           <CardContent className="p-6">
             {/* Counter */}
-            <div className="text-xs text-muted-foreground text-center mb-4">
+            <div className="text-sm text-muted-foreground text-center mb-4">
               {currentIndex + 1} / {elements.length}
             </div>
 
@@ -171,7 +171,7 @@ export function WeatherElementsCards() {
               <h3 className="font-bold text-foreground text-lg">
                 {currentElement.title}
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base text-muted-foreground">
                 {currentElement.description}
               </p>
             </div>
@@ -179,7 +179,7 @@ export function WeatherElementsCards() {
             {/* Points */}
             <ul className="space-y-2 max-w-xs mx-auto">
               {currentElement.points.map((point, pIndex) => (
-                <li key={pIndex} className="text-sm text-muted-foreground flex items-center gap-2">
+                <li key={pIndex} className="text-base text-muted-foreground flex items-center gap-2">
                   <span className={`h-2 w-2 rounded-full bg-gradient-to-br ${currentElement.color} shrink-0`} />
                   {point}
                 </li>
@@ -229,7 +229,7 @@ export function WeatherElementsCards() {
       {/* Cycle Info - Mobile & Tablet */}
       <Card className="border-dashed border-muted-foreground/30 lg:hidden">
         <CardContent className="p-4">
-          <p className="text-xs text-center text-muted-foreground">
+          <p className="text-sm text-center text-muted-foreground">
             🔄 <span className="font-medium">Siklus hidrometeorologi:</span> Geser untuk melihat 8 unsur yang saling berkaitan
           </p>
         </CardContent>
@@ -241,7 +241,7 @@ export function WeatherElementsCards() {
           <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
             🔄 Siklus Hidrometeorologi
           </h4>
-          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground flex-wrap">
+          <div className="flex items-center justify-center gap-2 text-base text-muted-foreground flex-wrap">
             <span className="bg-yellow-100 dark:bg-yellow-900/30 px-3 py-1.5 rounded-full">☀️ Radiasi</span>
             <span>→</span>
             <span className="bg-cyan-100 dark:bg-cyan-900/30 px-3 py-1.5 rounded-full">💧 Penguapan</span>
@@ -252,9 +252,9 @@ export function WeatherElementsCards() {
             <span>→</span>
             <span className="bg-blue-100 dark:bg-blue-900/30 px-3 py-1.5 rounded-full">🌧️ Hujan</span>
             <span>→</span>
-            <span className="text-xs text-muted-foreground/70">kembali ke awal</span>
+            <span className="text-sm text-muted-foreground/70">kembali ke awal</span>
           </div>
-          <p className="text-xs text-center text-muted-foreground mt-4">
+          <p className="text-sm text-center text-muted-foreground mt-4">
             Suhu, tekanan, dan angin mempengaruhi setiap tahap dalam siklus ini
           </p>
         </CardContent>
