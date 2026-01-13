@@ -1,5 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Calendar } from 'lucide-react';
+import { FarmerTipsCard } from '@/components/common/FarmerTipsCard';
 
 const dasarians = [
   {
@@ -80,12 +81,18 @@ export function DasarianCards() {
             <Card key={idx} className="border-0 bg-muted/50">
               <CardContent className="p-3 flex items-center gap-2">
                 <span className="text-xl">{item.emoji}</span>
-                <span className="text-xs text-muted-foreground">{item.text}</span>
+                <span className="text-sm text-muted-foreground">{item.text}</span>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
+
+      {/* Farmer Tips */}
+      <FarmerTipsCard 
+        tip="Gunakan dasarian untuk menjadwalkan: pemupukan di awal dasarian, penyemprotan di pertengahan, dan evaluasi di akhir. Lebih teratur!"
+        funFact="Sistem dasarian sudah dipakai sejak zaman Belanda untuk prakiraan pertanian. Seiring perkembangan teknologi, sekarang BMKG juga mengintegrasikan teknologi."
+      />
     </div>
   );
 }

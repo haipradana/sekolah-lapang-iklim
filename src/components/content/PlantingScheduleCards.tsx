@@ -1,5 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, Sprout, AlertCircle } from 'lucide-react';
+import { FarmerTipsCard } from '@/components/common/FarmerTipsCard';
 
 export function PlantingScheduleCards() {
   return (
@@ -17,7 +18,7 @@ export function PlantingScheduleCards() {
               { emoji: "🌸", text: "Hindari kering saat berbunga" },
               { emoji: "🌾", text: "Panen tidak saat hujan lebat" }
             ].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-2 text-xs text-muted-foreground bg-background rounded-lg p-2">
+              <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground bg-background rounded-lg p-2">
                 <span className="text-lg">{item.emoji}</span>
                 <span>{item.text}</span>
               </div>
@@ -38,19 +39,19 @@ export function PlantingScheduleCards() {
               </h4>
               <div className="grid grid-cols-3 gap-2 text-center">
                 <div className="bg-background rounded-lg p-2">
-                  <div className="text-xs text-muted-foreground mb-1">Nov–Feb</div>
+                  <div className="text-sm text-muted-foreground mb-1">Nov–Feb</div>
                   <div className="font-medium text-sm text-emerald-600">Padi</div>
-                  <div className="text-xs text-muted-foreground">Hujan 1</div>
+                  <div className="text-sm text-muted-foreground">Hujan 1</div>
                 </div>
                 <div className="bg-background rounded-lg p-2">
-                  <div className="text-xs text-muted-foreground mb-1">Mar–Jun</div>
+                  <div className="text-sm text-muted-foreground mb-1">Mar–Jun</div>
                   <div className="font-medium text-sm text-emerald-600">Padi</div>
-                  <div className="text-xs text-muted-foreground">Hujan 2</div>
+                  <div className="text-sm text-muted-foreground">Hujan 2</div>
                 </div>
                 <div className="bg-background rounded-lg p-2">
-                  <div className="text-xs text-muted-foreground mb-1">Jul–Okt</div>
+                  <div className="text-sm text-muted-foreground mb-1">Jul–Okt</div>
                   <div className="font-medium text-sm text-amber-600">Palawija</div>
-                  <div className="text-xs text-muted-foreground">Kemarau</div>
+                  <div className="text-sm text-muted-foreground">Kemarau</div>
                 </div>
               </div>
             </CardContent>
@@ -62,7 +63,7 @@ export function PlantingScheduleCards() {
               <h4 className="font-semibold text-foreground text-sm mb-2 flex items-center gap-2">
                 <span className="text-lg">🌽</span> Padi – Palawija – Palawija
               </h4>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-sm text-muted-foreground">
                 Untuk wilayah dengan air terbatas
               </p>
             </CardContent>
@@ -77,7 +78,7 @@ export function PlantingScheduleCards() {
             <Sprout className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
             <div>
               <h4 className="font-semibold text-foreground text-sm mb-1">KATAM (Kalender Tanam Terpadu)</h4>
-              <ul className="space-y-1 text-xs text-muted-foreground">
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-secondary shrink-0" />
                   Prakiraan iklim BMKG
@@ -123,13 +124,19 @@ export function PlantingScheduleCards() {
             <Card key={idx} className={`border-0 ${item.color}`}>
               <CardContent className="p-3 text-center">
                 <div className="font-semibold text-sm text-foreground mb-1">{item.condition}</div>
-                <div className="text-xs text-muted-foreground">{item.advice}</div>
-                <div className="text-xs text-muted-foreground mt-1 font-medium">{item.example}</div>
+                <div className="text-sm text-muted-foreground">{item.advice}</div>
+                <div className="text-sm text-muted-foreground mt-1 font-medium">{item.example}</div>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
+
+      {/* Farmer Tips */}
+      <FarmerTipsCard 
+        tip="Ikuti rekomendasi KATAM dari pemerintah! Jadwal ini sudah mempertimbangkan data iklim 30 tahun terakhir untuk wilayah Anda."
+        funFact="Petani yang mengikuti jadwal KATAM mengalami peningkatan hasil panen rata-rata 15-20%."
+      />
     </div>
   );
 }

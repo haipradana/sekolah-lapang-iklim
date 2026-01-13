@@ -7,6 +7,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog';
+import { FarmerTipsCard } from '@/components/common/FarmerTipsCard';
 
 const tools = [
   {
@@ -80,7 +81,7 @@ export function ClimatologyToolsCards() {
       <Card className="border-primary/20 bg-primary/5">
         <CardContent className="p-4">
           <p className="text-sm text-muted-foreground text-center">
-            <span className="font-semibold text-primary">6 alat ukur</span> yang digunakan BMKG untuk memantau cuaca dan iklim. <span className="text-xs">(Klik untuk lihat gambar)</span>
+            <span className="font-semibold text-primary">6 alat ukur</span> yang digunakan BMKG untuk memantau cuaca dan iklim. <span className="text-sm">(Klik untuk lihat gambar)</span>
           </p>
         </CardContent>
       </Card>
@@ -108,14 +109,14 @@ export function ClimatologyToolsCards() {
                   
                   <div className="space-y-1.5">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-medium text-muted-foreground">Mengukur:</span>
-                      <span className="text-xs text-foreground">{tool.measures}</span>
+                      <span className="text-sm font-medium text-muted-foreground">Mengukur:</span>
+                      <span className="text-sm text-foreground">{tool.measures}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-medium text-muted-foreground">Satuan:</span>
-                      <span className="text-xs bg-background/80 px-1.5 py-0.5 rounded font-mono">{tool.unit}</span>
+                      <span className="text-sm font-medium text-muted-foreground">Satuan:</span>
+                      <span className="text-sm bg-background/80 px-1.5 py-0.5 rounded font-mono">{tool.unit}</span>
                     </div>
-                    <p className="text-xs text-muted-foreground pt-1 border-t border-border/50">
+                    <p className="text-sm text-muted-foreground pt-1 border-t border-border/50">
                       {tool.howItWorks}
                     </p>
                   </div>
@@ -129,7 +130,7 @@ export function ClimatologyToolsCards() {
       {/* Fun Fact */}
       <Card className="border-dashed border-muted-foreground/30">
         <CardContent className="p-4 text-center">
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             💡 <span className="font-medium">Tahukah kamu?</span> Stasiun Klimatologi mengukur curah hujan setiap hari pukul 07.00 WIB sebagai standar nasional
           </p>
         </CardContent>
@@ -153,8 +154,8 @@ export function ClimatologyToolsCards() {
             <div className="aspect-video bg-muted rounded-lg flex items-center justify-center border-2 border-dashed border-muted-foreground/30">
               <div className="text-center text-muted-foreground">
                 <div className="text-5xl mb-2">{selectedTool?.emoji}</div>
-                <p className="text-xs">Gambar {selectedTool?.name}</p>
-                <p className="text-xs opacity-60">(Placeholder)</p>
+                <p className="text-sm">Gambar {selectedTool?.name}</p>
+                <p className="text-sm opacity-60">(Placeholder)</p>
               </div>
             </div>
 
@@ -166,19 +167,27 @@ export function ClimatologyToolsCards() {
               
               <div className="flex items-center gap-4 pt-2 border-t">
                 <div className="text-center flex-1">
-                  <p className="text-xs text-muted-foreground">Satuan</p>
+                  <p className="text-sm text-muted-foreground">Satuan</p>
                   <p className="font-mono text-sm font-medium">{selectedTool?.unit}</p>
                 </div>
                 <div className="h-8 w-px bg-border" />
                 <div className="text-center flex-1">
-                  <p className="text-xs text-muted-foreground">Cara Kerja</p>
-                  <p className="text-xs">{selectedTool?.howItWorks}</p>
+                  <p className="text-sm text-muted-foreground">Cara Kerja</p>
+                  <p className="text-sm">{selectedTool?.howItWorks}</p>
                 </div>
               </div>
             </div>
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Farmer Tips */}
+      <FarmerTipsCard 
+        tip="Anda tidak perlu alat mahal! Gunakan jerigen bekas sebagai ombrometer sederhana untuk mengukur curah hujan di lahan sendiri. Catat setiap hari!"
+        funFact="Data curah hujan yang Anda catat sendiri selama setahun bisa jadi panduan tanam yang sangat berharga."
+        linkUrl="https://id.wikihow.com/Mengukur-Curah-Hujan"
+        linkText="Lihat tutorial membuat ombrometer sederhana"
+      />
     </div>
   );
 }

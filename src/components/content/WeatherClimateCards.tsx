@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { CloudSun, Globe } from 'lucide-react';
+import { FarmerTipsCard } from '@/components/common/FarmerTipsCard';
 
 export function WeatherClimateCards() {
   return (
@@ -83,7 +84,7 @@ export function WeatherClimateCards() {
                 <span>Berdasarkan rata-rata</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-secondary mt-0.5">•</span>
+                <span className="text-secondary mt-1">•</span>
                 <span>Ciri suatu wilayah</span>
               </li>
             </ul>
@@ -95,6 +96,13 @@ export function WeatherClimateCards() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Farmer Tips */}
+      <FarmerTipsCard 
+        tip="Cuaca menentukan kapan menyiram hari ini, iklim menentukan kapan waktu tanam terbaik. Cek prakiraan cuaca BMKG sebelum ke sawah!"
+        funFact="Petani yang rutin memantau prakiraan cuaca bisa mengurangi kerugian hingga 30% akibat hujan tak terduga."
+      />
     </div>
   );
 }
+

@@ -1,5 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Waves, Sun, Bug } from 'lucide-react';
+import { FarmerTipsCard } from '@/components/common/FarmerTipsCard';
 
 const mitigationData = [
   {
@@ -77,12 +78,12 @@ export function MitigationCards() {
                     <div className="flex items-center gap-2 mb-1">
                       <h3 className="font-semibold text-foreground">{item.title}</h3>
                     </div>
-                    <p className="text-xs text-muted-foreground mb-2">
+                    <p className="text-sm text-muted-foreground mb-2">
                       Pemicu: {item.trigger}
                     </p>
                     <div className="space-y-1">
                       {item.actions.map((action, aIdx) => (
-                        <div key={aIdx} className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <div key={aIdx} className="flex items-center gap-2 text-sm text-muted-foreground">
                           <span className="h-1.5 w-1.5 rounded-full bg-foreground/40 shrink-0" />
                           {action}
                         </div>
@@ -104,8 +105,8 @@ export function MitigationCards() {
             <Card key={idx} className="border-0 bg-muted/50">
               <CardContent className="p-3 text-center">
                 <div className="text-2xl mb-1">{pest.emoji}</div>
-                <div className="font-medium text-xs text-foreground">{pest.name}</div>
-                <div className="text-xs text-muted-foreground">{pest.condition}</div>
+                <div className="font-medium text-sm text-foreground">{pest.name}</div>
+                <div className="text-sm text-muted-foreground">{pest.condition}</div>
               </CardContent>
             </Card>
           ))}
@@ -115,11 +116,17 @@ export function MitigationCards() {
       {/* Tip */}
       <Card className="border-dashed border-muted-foreground/30">
         <CardContent className="p-4 text-center">
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             💡 <span className="font-medium">Tips:</span> Tanam serentak se-hamparan dapat memutus siklus hama dan penyakit
           </p>
         </CardContent>
       </Card>
+
+      {/* Farmer Tips */}
+      <FarmerTipsCard 
+        tip="Ajak tetangga tanam serentak! Hama dan penyakit akan sulit berkembang jika semua lahan di sekitar Anda memiliki jadwal yang sama."
+        funFact="Tanam serentak bisa mengurangi serangan wereng hingga 70% karena memutus siklus hidupnya."
+      />
     </div>
   );
 }

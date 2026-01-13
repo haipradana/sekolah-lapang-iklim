@@ -1,5 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, AlertTriangle, Info } from 'lucide-react';
+import { FarmerTipsCard } from '@/components/common/FarmerTipsCard';
 
 export function SeasonZoneCards() {
   return (
@@ -27,7 +28,7 @@ export function SeasonZoneCards() {
               <p className="text-sm text-muted-foreground">
                 Batas ZOM <strong>≠</strong> batas kabupaten/kecamatan
               </p>
-              <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
+              <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0" />
                   1 kabupaten bisa terdiri dari beberapa ZOM
@@ -72,9 +73,9 @@ export function SeasonZoneCards() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-sm text-foreground">{zone.area}</span>
-                    <span className="text-xs text-muted-foreground">({zone.locations})</span>
+                    <span className="text-sm text-muted-foreground">({zone.locations})</span>
                   </div>
-                  <p className="text-xs text-muted-foreground">{zone.characteristic}</p>
+                  <p className="text-sm text-muted-foreground">{zone.characteristic}</p>
                 </div>
               </CardContent>
             </Card>
@@ -89,7 +90,7 @@ export function SeasonZoneCards() {
             <Info className="h-5 w-5 text-primary shrink-0 mt-0.5" />
             <div>
               <h4 className="font-semibold text-foreground text-sm mb-1">Prakiraan Musim</h4>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-sm text-muted-foreground">
                 BMKG mengeluarkan prakiraan awal musim hujan & kemarau berdasarkan ZOM. 
                 Petani dapat menggunakan informasi ini untuk merencanakan waktu tanam yang tepat.
               </p>
@@ -97,6 +98,12 @@ export function SeasonZoneCards() {
           </div>
         </CardContent>
       </Card>
+
+      {/* Farmer Tips */}
+      <FarmerTipsCard 
+        tip="Ketahui kode ZOM lahan Anda! Dengan tahu ZOM, Anda bisa baca prakiraan musim BMKG yang spesifik untuk wilayah Anda."
+        funFact="Tetangga desa bisa beda ZOM, jadi waktu tanam optimalnya juga bisa beda!"
+      />
     </div>
   );
 }

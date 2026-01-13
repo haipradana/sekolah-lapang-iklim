@@ -1,5 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowUp, Minus, ArrowDown, Calculator } from 'lucide-react';
+import { FarmerTipsCard } from '@/components/common/FarmerTipsCard';
 
 const classifications = [
   {
@@ -52,7 +53,7 @@ export function RainfallNatureCards() {
               Persentase = (Aktual ÷ Normal) × 100%
             </code>
           </div>
-          <p className="text-xs text-muted-foreground mt-3">
+          <p className="text-sm text-muted-foreground mt-3">
             <strong>Normal</strong> = rata-rata curah hujan 30 tahun (1991-2020)
           </p>
         </CardContent>
@@ -78,10 +79,10 @@ export function RainfallNatureCards() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
                       <h3 className="font-semibold text-foreground">{c.name}</h3>
-                      <span className="text-xs bg-background px-2 py-0.5 rounded font-mono">{c.threshold}</span>
+                      <span className="text-sm bg-background px-2 py-0.5 rounded font-mono">{c.threshold}</span>
                     </div>
                     <p className="text-sm text-muted-foreground mb-1">{c.meaning}</p>
-                    <p className="text-xs font-medium">{c.warning}</p>
+                    <p className="text-sm font-medium">{c.warning}</p>
                   </div>
                 </div>
               </CardContent>
@@ -91,7 +92,7 @@ export function RainfallNatureCards() {
       </div>
 
       {/* Example Calculation */}
-      <Card className="border-dashed border-muted-foreground/30">
+      <Card className="border-dashed border-muted-foreground/30 max-w-lg mx-auto">
         <CardContent className="p-4">
           <h4 className="text-sm font-semibold text-foreground mb-3 text-center">📝 Contoh Perhitungan</h4>
           <div className="bg-muted/50 rounded-lg p-3 space-y-2 text-sm">
@@ -115,6 +116,12 @@ export function RainfallNatureCards() {
           </div>
         </CardContent>
       </Card>
+
+      {/* Farmer Tips */}
+      <FarmerTipsCard 
+        tip="Lihat prakiraan sifat hujan BMKG sebelum musim tanam. BN? Pilih varietas tahan kekeringan. AN? Siapkan drainase ekstra!"
+        funFact="Prediksi sifat hujan BMKG akurat hingga 70-80% untuk skala dasarian."
+      />
     </div>
   );
 }

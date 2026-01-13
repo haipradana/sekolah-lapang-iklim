@@ -1,5 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Smartphone, MessageCircle, Mail, Globe } from 'lucide-react';
+import { FarmerTipsCard } from '@/components/common/FarmerTipsCard';
 
 const accessMethods = [
   {
@@ -61,10 +62,10 @@ export function BMKGAccessCards() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-foreground text-sm mb-0.5">{method.title}</h3>
-                    <p className="text-xs text-muted-foreground mb-2">{method.description}</p>
+                    <p className="text-sm text-muted-foreground mb-2">{method.description}</p>
                     <ul className="space-y-1">
                       {method.features.map((feature, fIdx) => (
-                        <li key={fIdx} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                        <li key={fIdx} className="flex items-center gap-1.5 text-sm text-muted-foreground">
                           <span className="h-1 w-1 rounded-full bg-current shrink-0" />
                           {feature}
                         </li>
@@ -91,7 +92,7 @@ export function BMKGAccessCards() {
             <Card key={idx} className="border-0 bg-muted/50">
               <CardContent className="p-3 text-center">
                 <div className="text-xl mb-1">{item.emoji}</div>
-                <div className="text-xs text-muted-foreground">{item.text}</div>
+                <div className="text-sm text-muted-foreground">{item.text}</div>
               </CardContent>
             </Card>
           ))}
@@ -101,11 +102,17 @@ export function BMKGAccessCards() {
       {/* CTA */}
       <Card className="border-dashed border-muted-foreground/30">
         <CardContent className="p-4 text-center">
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             📲 <span className="font-medium">Download sekarang:</span> Cari "Info BMKG" di Play Store atau App Store
           </p>
         </CardContent>
       </Card>
+
+      {/* Farmer Tips */}
+      <FarmerTipsCard 
+        tip="Download aplikasi Info BMKG sekarang dan aktifkan notifikasi! Anda akan dapat peringatan dini hujan ekstrem langsung di HP."
+        funFact="Selamat! Anda sudah menyelesaikan seluruh materi Sekolah Lapang Iklim. Semoga bermanfaat untuk pertanian Anda! 🎉"
+      />
     </div>
   );
 }

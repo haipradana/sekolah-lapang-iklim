@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Sun, Droplets, CloudRain, Wind, Thermometer, Gauge, Cloud, CloudSun, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FarmerTipsCard } from '@/components/common/FarmerTipsCard';
 
 const elements = [
   {
@@ -260,6 +261,12 @@ export function WeatherElementsCards() {
         </CardContent>
       </Card>
       </div>
+
+      {/* Farmer Tips */}
+      <FarmerTipsCard 
+        tip="Amati awan sebelum ke sawah! Awan kumulus tebal di pagi hari = kemungkinan hujan siang. Kelembapan tinggi (>80%) = waspada jamur. Angin kencang = tunda penyemprotan."
+        funFact="Nenek moyang petani Indonesia sudah membaca tanda alam ini ribuan tahun sebelum ada prakiraan cuaca modern!"
+      />
     </div>
   );
 }
