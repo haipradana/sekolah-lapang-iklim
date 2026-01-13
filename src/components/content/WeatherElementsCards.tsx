@@ -93,7 +93,17 @@ export function WeatherElementsCards() {
   const Icon = currentElement.icon;
 
   return (
-    <div className="space-y-6 mb-8">
+    <div className="space-y-8 mb-8">
+      {/* Infographic Image */}
+      <div className="rounded-xl overflow-hidden shadow-lg max-w-2xl mx-auto">
+        <img 
+          src="/img/siklus-hidrologi.webp" 
+          alt="Siklus Hidrologi" 
+          className="w-full h-auto object-contain"
+        />
+      </div>
+
+      <div className="space-y-6">
       {/* Desktop Grid View - only on lg and above */}
       <div className="hidden lg:grid lg:grid-cols-4 gap-4">
         {elements.map((el, idx) => {
@@ -249,6 +259,7 @@ export function WeatherElementsCards() {
           </p>
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 }
