@@ -15,7 +15,7 @@ export default function ModuleList() {
 
   return (
     <MainLayout>
-      <div className="p-6 md:p-8 max-w-5xl">
+      <div className="p-6 md:p-8">
         <Breadcrumbs 
           items={[{ label: 'Daftar Modul' }]} 
           className="mb-6"

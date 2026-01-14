@@ -17,7 +17,7 @@ import {
 export default function About() {
   return (
     <MainLayout>
-      <div className="p-6 md:p-8 max-w-4xl">
+      <div className="p-6 md:p-8">
         <Breadcrumbs 
           items={[{ label: 'Tentang' }]} 
           className="mb-6"
