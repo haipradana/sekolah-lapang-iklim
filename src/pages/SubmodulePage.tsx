@@ -42,6 +42,11 @@ export default function SubmodulePage() {
   const lastSubmodule = lastModule?.submodules[lastModule.submodules.length - 1];
   const isFinalSubmodule = module?.id === lastModule?.id && submodule?.slug === lastSubmodule?.slug;
 
+  // Scroll to top when submodule changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [submoduleSlug]);
+
   // Handle scroll to show/hide sticky CTA
   useEffect(() => {
     const handleScroll = () => {
