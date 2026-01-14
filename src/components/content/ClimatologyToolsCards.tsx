@@ -17,7 +17,7 @@ const tools = [
     unit: "jam",
     howItWorks: "Bola kaca membakar pita rekam saat matahari bersinar",
     color: "bg-amber-50 dark:bg-amber-950/30",
-    image: "/placeholder.svg",
+    image: "/img/1_3_alat-ukur/1_campbell.webp",
     description: "Campbell Stokes adalah alat pengukur lama penyinaran matahari. Alat ini menggunakan bola kaca yang memfokuskan sinar matahari untuk membakar pita rekam khusus, sehingga tercatat berapa jam matahari bersinar dalam sehari."
   },
   {
@@ -27,7 +27,7 @@ const tools = [
     unit: "mm/hari",
     howItWorks: "Selisih ketinggian air dari hari ke hari",
     color: "bg-cyan-50 dark:bg-cyan-950/30",
-    image: "/placeholder.svg",
+    image: "/img/1_3_alat-ukur/2_panci-penguapan.webp",
     description: "Panci Penguapan (Evaporation Pan) digunakan untuk mengukur tingkat penguapan air. Dengan mengukur selisih ketinggian air setiap hari, kita dapat mengetahui seberapa banyak air yang menguap."
   },
   {
@@ -37,7 +37,7 @@ const tools = [
     unit: "persen (%)",
     howItWorks: "Ada yang manual (psikrometer) dan digital",
     color: "bg-teal-50 dark:bg-teal-950/30",
-    image: "/placeholder.svg",
+    image: "/img/1_3_alat-ukur/3_higrometer.webp",
     description: "Higrometer adalah alat untuk mengukur kelembapan udara. Tipe manual disebut psikrometer yang menggunakan dua termometer (bola basah dan bola kering), sedangkan tipe digital menggunakan sensor elektronik."
   },
   {
@@ -47,7 +47,7 @@ const tools = [
     unit: "Celcius (°C)",
     howItWorks: "Tipe max-min mencatat suhu tertinggi & terendah",
     color: "bg-red-50 dark:bg-red-950/30",
-    image: "/placeholder.svg",
+    image: "/img/1_3_alat-ukur/4_termometer.webp",
     description: "Termometer mengukur suhu udara dalam satuan Celcius. Termometer max-min khusus mencatat suhu tertinggi dan terendah dalam 24 jam terakhir untuk analisis cuaca."
   },
   {
@@ -57,7 +57,7 @@ const tools = [
     unit: "km/jam / knots",
     howItWorks: "Wind vane menunjukkan arah hembusan angin",
     color: "bg-slate-50 dark:bg-slate-950/30",
-    image: "/placeholder.svg",
+    image: "/img/1_3_alat-ukur/5_anemometer.webp",
     description: "Anemometer mengukur kecepatan angin menggunakan mangkuk yang berputar. Biasanya dipasangkan dengan wind vane (penunjuk arah angin) untuk mengetahui dari mana angin berhembus."
   },
   {
@@ -67,8 +67,28 @@ const tools = [
     unit: "milimeter (mm)",
     howItWorks: "1 mm = 1 liter air per m². Diukur pukul 07.00 WIB",
     color: "bg-blue-50 dark:bg-blue-950/30",
-    image: "/placeholder.svg",
+    image: "/img/1_3_alat-ukur/6_ombrometer.webp",
     description: "Ombrometer (penakar hujan) mengukur curah hujan dalam satuan milimeter. 1 mm curah hujan berarti 1 liter air per meter persegi. Pengukuran standar dilakukan setiap pukul 07.00 WIB."
+  },
+  {
+    emoji: "🌱",
+    name: "Termometer Tanah",
+    measures: "Suhu tanah",
+    unit: "Celcius (°C)",
+    howItWorks: "Dipasang pada kedalaman tertentu (5, 10, 20, 50, 100 cm)",
+    color: "bg-orange-50 dark:bg-orange-950/30",
+    image: "/img/1_3_alat-ukur/7_termometer-tanah.webp",
+    description: "Termometer Tanah mengukur suhu tanah pada berbagai kedalaman. Data ini penting untuk pertanian karena suhu tanah mempengaruhi perkecambahan benih, pertumbuhan akar, dan aktivitas mikroorganisme tanah."
+  },
+  {
+    emoji: "📊",
+    name: "Barograf",
+    measures: "Tekanan udara",
+    unit: "milibar (mb) / hPa",
+    howItWorks: "Mencatat perubahan tekanan udara secara kontinu pada pita rekam",
+    color: "bg-purple-50 dark:bg-purple-950/30",
+    image: "/img/1_3_alat-ukur/8_barograf.webp",
+    description: "Barograf adalah alat pencatat tekanan udara secara otomatis dan kontinu. Perubahan tekanan udara dapat mengindikasikan perubahan cuaca yang akan datang, seperti datangnya badai atau cuaca cerah."
   }
 ];
 
@@ -81,7 +101,7 @@ export function ClimatologyToolsCards() {
       <Card className="border-primary/20 bg-primary/5">
         <CardContent className="p-4">
           <p className="text-sm text-muted-foreground text-center">
-            <span className="font-semibold text-primary">6 alat ukur</span> yang digunakan BMKG untuk memantau cuaca dan iklim. <span className="text-sm">(Klik untuk lihat gambar)</span>
+            <span className="font-semibold text-primary">8 alat ukur</span> yang digunakan BMKG untuk memantau cuaca dan iklim. <span className="text-sm">(Klik untuk lihat gambar)</span>
           </p>
         </CardContent>
       </Card>
@@ -150,13 +170,13 @@ export function ClimatologyToolsCards() {
           </DialogHeader>
           
           <div className="space-y-4">
-            {/* Placeholder Image */}
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center border-2 border-dashed border-muted-foreground/30">
-              <div className="text-center text-muted-foreground">
-                <div className="text-5xl mb-2">{selectedTool?.emoji}</div>
-                <p className="text-sm">Gambar {selectedTool?.name}</p>
-                <p className="text-sm opacity-60">(Placeholder)</p>
-              </div>
+            {/* Tool Image */}
+            <div className="bg-muted rounded-lg overflow-hidden flex items-center justify-center">
+              <img 
+                src={selectedTool?.image} 
+                alt={selectedTool?.name}
+                className="max-w-full h-auto object-contain"
+              />
             </div>
 
             {/* Description */}
