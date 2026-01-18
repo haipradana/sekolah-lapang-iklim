@@ -40,7 +40,7 @@ export const modulesData: Module[] = [
     description: "Pelajari dasar-dasar cuaca dan iklim, perbedaannya, unsur-unsur pembentuknya, serta alat-alat ukur yang digunakan dalam klimatologi.",
     icon: "cloud-sun",
     color: "primary",
-    imageUrl: "https://images.unsplash.com/photo-1504253163759-c23fccaebb55?w=800&q=80",
+    imageUrl: "/img/thumbnail/1_wide.webp",
     submodules: [
       {
         id: "1-1",
@@ -71,7 +71,7 @@ export const modulesData: Module[] = [
           correctAnswer: "Cuaca",
           explanation: "Karena ini menggambarkan kondisi spesifik 'hari ini' di satu tempat tertentu, maka termasuk CUACA. Jika pernyataannya adalah 'Rata-rata suhu Sleman setiap bulan Agustus adalah 28°C', itu baru termasuk iklim."
         },
-        imageUrl: "https://images.unsplash.com/photo-1561484930-974554019ade?w=600&q=80"
+        imageUrl: "/img/thumbnail/1_1-thumbnail.webp"
       },
       {
         id: "1-2",
@@ -121,7 +121,7 @@ export const modulesData: Module[] = [
           correctAnswer: "Kesuburan Tanah",
           explanation: "Kesuburan tanah bukan unsur cuaca/iklim, melainkan faktor pertanian yang dipengaruhi oleh cuaca dan iklim. 8 unsur cuaca/iklim adalah: radiasi matahari, penguapan, kelembapan, suhu, tekanan, angin, awan, dan hujan."
         },
-        imageUrl: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=600&q=80"
+        imageUrl: "/img/thumbnail/1_2-thumbnail.webp"
       },
       {
         id: "1-3",
@@ -163,7 +163,7 @@ export const modulesData: Module[] = [
           correctAnswer: "Curah Hujan",
           explanation: "Ombrometer (rain gauge) adalah alat untuk mengukur curah hujan dalam mm. Anemometer untuk angin, termometer untuk suhu, dan Campbell Stokes untuk lama penyinaran matahari."
         },
-        imageUrl: "https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=600&q=80"
+        imageUrl: "/img/thumbnail/1_3-thumbnail.webp"
       }
     ]
   },
@@ -173,7 +173,7 @@ export const modulesData: Module[] = [
     description: "Pelajari cara membaca dan memahami informasi iklim yang dikeluarkan BMKG: dasarian, sifat hujan, dan zona musim.",
     icon: "bar-chart-2",
     color: "secondary",
-    imageUrl: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&q=80",
+    imageUrl: "/img/thumbnail/2_wide.webp",
     submodules: [
       {
         id: "2-1",
@@ -203,7 +203,7 @@ export const modulesData: Module[] = [
           correctAnswer: "Dasarian II",
           explanation: "Tanggal 15 berada di rentang 11-20, sehingga termasuk Dasarian II. Dasarian I (1-10), Dasarian II (11-20), Dasarian III (21-akhir bulan)."
         },
-        imageUrl: "https://images.unsplash.com/photo-1435527173128-983b87201f4d?w=600&q=80"
+        imageUrl: "/img/thumbnail/2_1-thumbnail.webp"
       },
       {
         id: "2-2",
@@ -237,7 +237,7 @@ export const modulesData: Module[] = [
           correctAnswer: "80% - Bawah Normal (BN)",
           explanation: "Perhitungan: 80 ÷ 100 × 100% = 80%. Karena 80% < 85%, maka sifat hujan adalah Bawah Normal (BN). Perlu waspada potensi kekeringan."
         },
-        imageUrl: "https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?w=600&q=80"
+        imageUrl: "/img/thumbnail/2_2-thumbnail.webp"
       },
       {
         id: "2-3",
@@ -276,7 +276,7 @@ export const modulesData: Module[] = [
           correctAnswer: "Satu kabupaten bisa memiliki lebih dari satu ZOM",
           explanation: "Batas ZOM berdasarkan pola curah hujan, bukan batas administrasi. Sehingga satu kabupaten bisa memiliki beberapa ZOM dengan awal musim yang berbeda."
         },
-        imageUrl: "https://images.unsplash.com/photo-1505672678657-cc7037095e60?w=600&q=80"
+        imageUrl: "/img/thumbnail/2_3-thumbnail.webp"
       }
     ]
   },
@@ -286,7 +286,7 @@ export const modulesData: Module[] = [
     description: "Aplikasi praktis informasi iklim untuk pertanian: jadwal tanam, mitigasi bencana, dan cara mengakses informasi BMKG.",
     icon: "sprout",
     color: "accent",
-    imageUrl: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80",
+    imageUrl: "/img/thumbnail/3_wide.webp",
     submodules: [
       {
         id: "3-1",
@@ -325,7 +325,7 @@ export const modulesData: Module[] = [
           correctAnswer: "Menanam padi varietas tahan kering atau palawija",
           explanation: "Saat prakiraan BN (kering), disarankan memilih varietas tahan kering atau beralih ke palawija (jagung/kedelai) yang kebutuhan airnya lebih sedikit, untuk meminimalkan risiko gagal panen."
         },
-        imageUrl: "https://images.unsplash.com/photo-1599451897608-c4b093aab8d3?w=600&q=80"
+        imageUrl: "/img/thumbnail/3_1-thumbnail.webp"
       },
       {
         id: "3-2",
@@ -359,7 +359,7 @@ export const modulesData: Module[] = [
           correctAnswer: "Kekeringan",
           explanation: "El Nino menyebabkan musim kemarau lebih panjang dan curah hujan berkurang, sehingga meningkatkan risiko kekeringan. Sebaliknya, La Nina menyebabkan hujan berlebih dan risiko banjir."
         },
-        imageUrl: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&q=80"
+        imageUrl: "/img/thumbnail/3_2-thumbnail.webp"
       },
       {
         id: "3-3",
@@ -398,7 +398,7 @@ export const modulesData: Module[] = [
           correctAnswer: "Mengaktifkan notifikasi aplikasi InfoBMKG",
           explanation: "Aplikasi InfoBMKG memberikan notifikasi real-time saat ada peringatan dini cuaca ekstrem. Ini lebih cepat dari media lain karena langsung push notification ke smartphone."
         },
-        imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80"
+        imageUrl: "/img/thumbnail/3_3-thumbnail.webp"
       }
     ]
   }
@@ -416,9 +416,9 @@ export const getSubmoduleBySlug = (moduleId: number, slug: string): Submodule | 
 export const getAdjacentSubmodules = (moduleId: number, currentSlug: string) => {
   const module = getModuleById(moduleId);
   if (!module) return { prev: null, next: null };
-  
+
   const currentIndex = module.submodules.findIndex(s => s.slug === currentSlug);
-  
+
   return {
     prev: currentIndex > 0 ? module.submodules[currentIndex - 1] : null,
     next: currentIndex < module.submodules.length - 1 ? module.submodules[currentIndex + 1] : null
