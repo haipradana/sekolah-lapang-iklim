@@ -36,6 +36,23 @@ export function PlantingScheduleCards() {
           <Sprout className="h-6 w-6 text-primary" />
           <h3 className="font-bold text-foreground text-xl">3 Musim Tanam Padi</h3>
         </div>
+        
+        {/* Image */}
+        <Card className="border-0 shadow-md overflow-hidden mb-5">
+          <CardContent className="p-4">
+            <div className="flex justify-center">
+              <img 
+                src="/img/3_1/musim-padi.webp" 
+                alt="3 Musim Tanam Padi: Rendeng (Nov-Mar), Gadu (Apr-Jul), Kemarau (Agu-Okt)"
+                className="w-full sm:max-w-xl rounded-lg"
+              />
+            </div>
+            <p className="text-sm text-muted-foreground text-center mt-3">
+              Ilustrasi 3 Musim Tanam Padi di Indonesia
+            </p>
+          </CardContent>
+        </Card>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* Rendeng */}
           <Card className="border-0 shadow-md overflow-hidden">
