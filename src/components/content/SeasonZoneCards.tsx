@@ -1,22 +1,58 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { MapPin, AlertTriangle, Info } from 'lucide-react';
+import { MapPin, AlertTriangle, Info, Map, Lightbulb } from 'lucide-react';
 import { FarmerTipsCard } from '@/components/common/FarmerTipsCard';
 
 export function SeasonZoneCards() {
+  const zomData = [
+    { code: "117", color: "bg-green-600", locations: "Kulon Progo (barat)", textColor: "text-white" },
+    { code: "121", color: "bg-yellow-300", locations: "Sleman (utara)", textColor: "text-gray-800" },
+    { code: "136", color: "bg-pink-300", locations: "Sleman (tengah)", textColor: "text-gray-800" },
+    { code: "138", color: "bg-pink-200", locations: "Sleman & Kota Yogyakarta", textColor: "text-gray-800" },
+    { code: "139", color: "bg-amber-600", locations: "Kulon Progo & Sleman (barat)", textColor: "text-white" },
+    { code: "140", color: "bg-amber-400", locations: "Bantul & Kulon Progo", textColor: "text-gray-800" },
+    { code: "141", color: "bg-lime-200", locations: "Bantul & Gunung Kidul (barat)", textColor: "text-gray-800" },
+    { code: "142", color: "bg-lime-300", locations: "Gunung Kidul (selatan)", textColor: "text-gray-800" },
+  ];
+
   return (
     <div className="space-y-6 mb-8">
       {/* Definition */}
       <Card className="border-primary/20 bg-primary/5">
-        <CardContent className="p-4 text-center">
-          <div className="inline-flex items-center gap-2 mb-2">
+        <CardContent className="p-4">
+          <div className="inline-flex items-center gap-2 mb-3">
             <MapPin className="h-5 w-5 text-primary" />
-            <span className="font-semibold text-primary">Apa itu Zona Musim (ZOM)?</span>
+            <span className="font-semibold text-primary text-lg">Apa itu Zona Musim (ZOM)?</span>
           </div>
-          <p className="text-sm text-muted-foreground">
-            Wilayah dengan pola musim hujan & kemarau yang jelas. Indonesia dibagi menjadi <span className="font-semibold text-foreground">342 ZOM</span>
+          <p className="text-base text-muted-foreground mb-3">
+            ZOM adalah daerah yang pola hujan rata-ratanya memiliki <strong className="text-foreground">perbedaan yang jelas</strong> antara periode musim kemarau dan musim hujan.
+          </p>
+          <p className="text-base text-muted-foreground mb-3">
+            Daerah yang pola hujannya <em>tidak memiliki</em> perbedaan jelas antara musim kemarau dan hujan disebut <strong className="text-foreground">Non Zona Musim (Non ZOM)</strong>.
+          </p>
+          <p className="text-base text-muted-foreground">
+            Indonesia dibagi menjadi <span className="font-semibold text-foreground">342 ZOM</span> berdasarkan pola curah hujan.
           </p>
         </CardContent>
       </Card>
+
+      {/* Real Case Example */}
+      <Card className="border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/30">
+        <CardContent className="p-4">
+          <div className="flex items-start gap-3">
+            <Lightbulb className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+            <div>
+              <h3 className="font-semibold text-foreground text-base mb-2">Contoh Kasus Nyata</h3>
+              <p className="text-base text-muted-foreground mb-2">
+                Pak Tani di Bantul timur (ZOM 141) dan Bu Tani di Bantul barat (ZOM 140) bertetangga kecamatan, tapi prakiraan awal musim hujan mereka <strong className="text-foreground">bisa berbeda 1-2 dasarian</strong>.
+              </p>
+              <p className="text-base text-muted-foreground">
+                <strong className="text-foreground">Implikasinya:</strong> Jika keduanya tanam bersamaan hanya berdasarkan info kabupaten, salah satu bisa tanam terlalu cepat atau terlambat. Dengan tahu ZOM masing-masing, waktu tanam bisa lebih optimal.
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
 
       {/* Important Note */}
       <Card className="border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30">
@@ -24,11 +60,11 @@ export function SeasonZoneCards() {
           <div className="flex items-start gap-3">
             <AlertTriangle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-semibold text-foreground text-sm mb-1">Penting!</h3>
-              <p className="text-sm text-muted-foreground">
+              <h3 className="font-semibold text-foreground text-base mb-1">Penting!</h3>
+              <p className="text-base text-muted-foreground">
                 Batas ZOM <strong>≠</strong> batas kabupaten/kecamatan
               </p>
-              <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+              <ul className="mt-2 space-y-1 text-base text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0" />
                   1 kabupaten bisa terdiri dari beberapa ZOM
@@ -43,39 +79,40 @@ export function SeasonZoneCards() {
         </CardContent>
       </Card>
 
-      {/* DIY Zones */}
+      {/* ZOM Map DIY */}
+      <Card className="overflow-hidden">
+        <CardContent className="p-4">
+          <div className="flex justify-center">
+            <img 
+              src="/img/2_3_zom/zom-diy.png" 
+              alt="Peta Zona Musim (ZOM) Provinsi D.I. Yogyakarta - BMKG"
+              className="w-full sm:max-w-md lg:max-w-lg h-auto rounded-lg"
+            />
+          </div>
+          <div className="p-4 bg-muted/30">
+            <div className="flex items-center gap-2 mb-2">
+              <Map className="h-4 w-4 text-primary" />
+              <span className="text-base font-medium text-foreground">Peta ZOM Prov. D.I. Yogyakarta</span>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Sumber: BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* DIY Zones Detail */}
       <div>
-        <h3 className="font-semibold text-foreground text-sm mb-3">ZOM di DI Yogyakarta</h3>
-        <div className="grid grid-cols-1 gap-3">
-          {[
-            {
-              area: "Selatan",
-              locations: "Bantul, Kulon Progo",
-              characteristic: "Musim hujan lebih panjang",
-              emoji: "🌧️"
-            },
-            {
-              area: "Utara",
-              locations: "Sleman",
-              characteristic: "Dipengaruhi lereng Merapi",
-              emoji: "🌋"
-            },
-            {
-              area: "Tengah",
-              locations: "Kota Yogyakarta",
-              characteristic: "Pola urban tersendiri",
-              emoji: "🏙️"
-            }
-          ].map((zone, idx) => (
-            <Card key={idx} className="border-0 bg-muted/50">
-              <CardContent className="p-3 flex items-center gap-3">
-                <span className="text-2xl">{zone.emoji}</span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="font-semibold text-sm text-foreground">{zone.area}</span>
-                    <span className="text-sm text-muted-foreground">({zone.locations})</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{zone.characteristic}</p>
+        <h3 className="font-semibold text-foreground text-base mb-3">8 Zona Musim di DI Yogyakarta</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          {zomData.map((zom) => (
+            <Card key={zom.code} className="border-0 overflow-hidden">
+              <CardContent className="p-0">
+                <div className={`${zom.color} ${zom.textColor} px-3 py-2 text-center`}>
+                  <span className="font-bold text-base">ZOM {zom.code}</span>
+                </div>
+                <div className="p-2 bg-muted/50">
+                  <p className="text-sm text-muted-foreground text-center leading-tight">{zom.locations}</p>
                 </div>
               </CardContent>
             </Card>
@@ -83,14 +120,43 @@ export function SeasonZoneCards() {
         </div>
       </div>
 
+      {/* Coverage Detail by Kabupaten */}
+      <Card className="border-0 bg-muted/50">
+        <CardContent className="p-4">
+          <h4 className="font-semibold text-foreground text-base mb-3">Cakupan ZOM per Kabupaten/Kota</h4>
+          <div className="space-y-3 text-base">
+            <div className="flex gap-2">
+              <span className="font-medium text-foreground min-w-[100px]">Kulon Progo</span>
+              <span className="text-muted-foreground">ZOM 117, 139, 140</span>
+            </div>
+            <div className="flex gap-2">
+              <span className="font-medium text-foreground min-w-[100px]">Sleman</span>
+              <span className="text-muted-foreground">ZOM 121, 136, 138, 139</span>
+            </div>
+            <div className="flex gap-2">
+              <span className="font-medium text-foreground min-w-[100px]">Kota Yogya</span>
+              <span className="text-muted-foreground">ZOM 138</span>
+            </div>
+            <div className="flex gap-2">
+              <span className="font-medium text-foreground min-w-[100px]">Bantul</span>
+              <span className="text-muted-foreground">ZOM 140, 141</span>
+            </div>
+            <div className="flex gap-2">
+              <span className="font-medium text-foreground min-w-[100px]">Gunung Kidul</span>
+              <span className="text-muted-foreground">ZOM 141, 142</span>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Forecast Info */}
       <Card className="border-dashed border-muted-foreground/30">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
             <Info className="h-5 w-5 text-primary shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-semibold text-foreground text-sm mb-1">Prakiraan Musim</h4>
-              <p className="text-sm text-muted-foreground">
+              <h4 className="font-semibold text-foreground text-base mb-1">Prakiraan Musim</h4>
+              <p className="text-base text-muted-foreground">
                 BMKG mengeluarkan prakiraan awal musim hujan & kemarau berdasarkan ZOM. 
                 Petani dapat menggunakan informasi ini untuk merencanakan waktu tanam yang tepat.
               </p>
