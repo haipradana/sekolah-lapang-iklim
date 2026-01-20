@@ -145,9 +145,9 @@ export default function About() {
                 <div>
                   <p className="font-medium text-foreground">Alamat</p>
                   <p className="text-muted-foreground">
-                    Stasiun Klimatologi Klas I Yogyakarta<br />
-                    Jl. Wates Km. 8, Balecatur, Gamping<br />
-                    Sleman, DI Yogyakarta 55294
+                    Stasiun Klimatologi Daerah Istimewa Yogyakarta<br />
+                    Jl. Kabupaten KM.5,5 Duwet, Sendangadi, Mlati<br />
+                    Sleman, DI Yogyakarta 55285
                   </p>
                 </div>
               </div>
@@ -156,7 +156,7 @@ export default function About() {
                 <Phone className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-medium text-foreground">Telepon</p>
-                  <p className="text-muted-foreground">(0274) 798-230</p>
+                  <p className="text-muted-foreground">(0274) 288-0151</p>
                 </div>
               </div>
               
@@ -164,7 +164,7 @@ export default function About() {
                 <Mail className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-medium text-foreground">Email</p>
-                  <p className="text-muted-foreground">staklim.yogyakarta@bmkg.go.id</p>
+                  <p className="text-muted-foreground">staklim.yogya@bmkg.go.id</p>
                 </div>
               </div>
               
@@ -173,7 +173,13 @@ export default function About() {
                 <div>
                   <p className="font-medium text-foreground">Website & Media Sosial</p>
                   <p className="text-muted-foreground">
-                    www.bmkg.go.id | Instagram: @staklim_jogja
+                    <a href="https://staklim-yogya.bmkg.go.id" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      staklim-yogya.bmkg.go.id
+                    </a>
+                    {' | '}
+                    <a href="https://www.instagram.com/staklim_yogya" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      Instagram: @staklim_yogya
+                    </a>
                   </p>
                 </div>
               </div>
