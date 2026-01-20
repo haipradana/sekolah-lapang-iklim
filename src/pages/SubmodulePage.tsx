@@ -2,8 +2,9 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
-import { QuizCard } from '@/components/common/QuizCard';
+import { MultiQuizCard } from '@/components/common/MultiQuizCard';
 import { CelebrationCard } from '@/components/common/CelebrationCard';
+import { getQuizBySubmoduleId } from '@/data/quizData';
 import { WeatherClimateCards } from '@/components/content/WeatherClimateCards';
 import { WeatherElementsCards } from '@/components/content/WeatherElementsCards';
 import { ClimatologyToolsCards } from '@/components/content/ClimatologyToolsCards';
@@ -32,6 +33,7 @@ export default function SubmodulePage() {
   const navigate = useNavigate();
   const { markSubmoduleComplete, isSubmoduleComplete, saveQuizScore } = useProgress();
   const [showStickyCTA, setShowStickyCTA] = useState(false);
+  const [quizCompleted, setQuizCompleted] = useState(false);
 
   const module = getModuleById(Number(moduleId));
   const submodule = getSubmoduleBySlug(Number(moduleId), submoduleSlug || '');
@@ -115,10 +117,16 @@ export default function SubmodulePage() {
     markSubmoduleComplete(submodule.id);
   };
 
+  // Get quiz data for this submodule
+  const quizData = getQuizBySubmoduleId(submodule.id);
+
   const handleQuizComplete = (score: number) => {
-    saveQuizScore(submodule.quiz.id, score);
-    if (score === 100) {
-      markSubmoduleComplete(submodule.id);
+    setQuizCompleted(true);
+    if (quizData) {
+      saveQuizScore(quizData.id, score);
+      if (score >= 80) {
+        markSubmoduleComplete(submodule.id);
+      }
     }
   };
 
@@ -189,16 +197,18 @@ export default function SubmodulePage() {
             <span className="inline-block w-1 h-6 bg-primary rounded-full"></span>
             Uji Pemahaman Anda
           </h2>
-          <QuizCard key={submodule.quiz.id} quiz={submodule.quiz} onComplete={handleQuizComplete} />
+          {quizData && (
+            <MultiQuizCard key={quizData.id} quiz={quizData} onComplete={handleQuizComplete} />
+          )}
         </div>
 
-        {/* Mark Complete Button */}
-        {!isComplete && (
+        {/* Mark Complete Button - Only show after quiz is completed */}
+        {!isComplete && quizCompleted && (
           <Card className="mb-8 border-success/30 bg-success/5">
             <CardContent className="p-4">
               <div className="flex flex-col sm:flex-row items-center gap-4">
                 <div className="flex-1 text-center sm:text-left">
-                  <p className="font-medium text-foreground">Sudah selesai membaca?</p>
+                  <p className="font-medium text-foreground">Kuis sudah selesai!</p>
                   <p className="text-sm text-muted-foreground">Tandai sub-modul ini sebagai selesai</p>
                 </div>
                 <Button onClick={handleMarkComplete} variant="default" className="bg-success hover:bg-success/90">
