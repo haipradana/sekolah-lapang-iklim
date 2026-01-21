@@ -191,6 +191,7 @@ export const MultiQuizCard = ({ quiz, onComplete }: MultiQuizCardProps) => {
           {currentQuestion.options.map((option, index) => (
             <div
               key={index}
+              onClick={() => !isSubmitted && setSelectedAnswer(option)}
               className={cn(
                 "flex items-center space-x-3 p-3 rounded-lg border-2 transition-all",
                 isSubmitted
