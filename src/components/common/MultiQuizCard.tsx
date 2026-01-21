@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { CheckCircle2, XCircle, HelpCircle, Lightbulb, ChevronRight, RotateCcw, Trophy } from 'lucide-react';
+import { CheckCircle2, XCircle, HelpCircle, Lightbulb, ChevronRight, RotateCcw, Trophy, ZoomIn, X } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Progress } from '@/components/ui/progress';
+import {
+  Dialog,
+  DialogContent,
+  DialogClose,
+} from '@/components/ui/dialog';
 
 export interface QuizQuestion {
   id: string;
@@ -32,6 +37,7 @@ export const MultiQuizCard = ({ quiz, onComplete }: MultiQuizCardProps) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [answers, setAnswers] = useState<Record<string, boolean>>({});
   const [showResult, setShowResult] = useState(false);
+  const [showImageZoom, setShowImageZoom] = useState(false);
 
   const currentQuestion = quiz.questions[currentIndex];
   const totalQuestions = quiz.questions.length;
@@ -135,15 +141,43 @@ export const MultiQuizCard = ({ quiz, onComplete }: MultiQuizCardProps) => {
           {currentQuestion.question}
         </CardTitle>
 
-        {/* Optional Image */}
+        {/* Optional Image - Clickable to zoom */}
         {currentQuestion.imageUrl && (
-          <div className="mt-4 rounded-lg overflow-hidden bg-muted">
-            <img 
-              src={currentQuestion.imageUrl} 
-              alt="Gambar soal"
-              className="w-full h-auto max-h-48 object-contain"
-            />
-          </div>
+          <>
+            <div 
+              className="mt-4 rounded-lg overflow-hidden bg-muted cursor-pointer group relative"
+              onClick={() => setShowImageZoom(true)}
+            >
+              <img 
+                src={currentQuestion.imageUrl} 
+                alt="Gambar soal"
+                className="w-full h-auto max-h-72 sm:max-h-80 object-contain"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 text-white px-3 py-1.5 rounded-full flex items-center gap-2 text-sm">
+                  <ZoomIn className="h-4 w-4" />
+                  Klik untuk perbesar
+                </div>
+              </div>
+            </div>
+            
+            {/* Zoom Dialog */}
+            <Dialog open={showImageZoom} onOpenChange={setShowImageZoom}>
+              <DialogContent className="max-w-4xl w-[95vw] p-2 sm:p-4">
+                <DialogClose className="absolute right-3 top-3 z-10 rounded-full bg-black/60 text-white p-1.5 hover:bg-black/80 transition-colors">
+                  <X className="h-5 w-5" />
+                  <span className="sr-only">Tutup</span>
+                </DialogClose>
+                <div className="rounded-lg overflow-hidden bg-muted">
+                  <img 
+                    src={currentQuestion.imageUrl} 
+                    alt="Gambar soal (diperbesar)"
+                    className="w-full h-auto max-h-[85vh] object-contain"
+                  />
+                </div>
+              </DialogContent>
+            </Dialog>
+          </>
         )}
       </CardHeader>
       

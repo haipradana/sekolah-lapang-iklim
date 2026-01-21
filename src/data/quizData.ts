@@ -257,6 +257,48 @@ export const quiz2_3: MultiQuiz = {
     ]
 };
 
+export const quiz2_4: MultiQuiz = {
+    id: "quiz-2-4",
+    questions: [
+        {
+            id: "q2-4-1",
+            question: "CH adalah singkatan dari apa?",
+            options: ["Curah Hujan", "Ciri Hujan", "Cara Hujan", "Cuaca Harian"],
+            correctAnswer: "Curah Hujan",
+            explanation: "CH adalah singkatan dari Curah Hujan, yaitu jumlah air hujan yang jatuh dalam satuan milimeter (mm)."
+        },
+        {
+            id: "q2-4-2",
+            question: "SH adalah singkatan dari apa?",
+            options: ["Sifat Hujan", "Suhu Harian", "Sistem Hujan", "Siklus Hidrologi"],
+            correctAnswer: "Sifat Hujan",
+            explanation: "SH adalah singkatan dari Sifat Hujan, yaitu perbandingan curah hujan dengan rata-rata normal 30 tahun dalam persen (%)."
+        },
+        {
+            id: "q2-4-3",
+            question: "Perhatikan peta CH berikut. Jika daerah Anda berwarna KUNING (101-150 mm), apa kategori curah hujannya?",
+            imageUrl: "/img/2_4_peta-bmkg/ch-april-2026.jpg",
+            options: ["Rendah", "Menengah", "Tinggi", "Sangat Tinggi"],
+            correctAnswer: "Menengah",
+            explanation: "Warna kuning pada peta CH menunjukkan curah hujan 101-150 mm yang termasuk kategori MENENGAH. Cukup untuk kebutuhan pertanian."
+        },
+        {
+            id: "q2-4-4",
+            question: "Jika peta SH menunjukkan Bawah Normal (BN < 85%), apa risikonya bagi pertanian?",
+            options: ["Banjir", "Kekeringan", "Hujan lebat", "Tidak ada risiko"],
+            correctAnswer: "Kekeringan",
+            explanation: "Sifat Hujan Bawah Normal artinya hujan lebih sedikit dari biasanya, sehingga meningkatkan risiko KEKERINGAN. Petani perlu menyiapkan irigasi tambahan."
+        },
+        {
+            id: "q2-4-5",
+            question: "Jika peta CH menunjukkan warna HIJAU TUA (> 500 mm), langkah apa yang perlu disiapkan?",
+            options: ["Siapkan irigasi tambahan", "Perbaiki drainase dan waspadai banjir", "Tanam varietas tahan kering", "Tidak perlu antisipasi"],
+            correctAnswer: "Perbaiki drainase dan waspadai banjir",
+            explanation: "CH > 500 mm termasuk SANGAT TINGGI dengan risiko banjir. Petani perlu memastikan saluran drainase bersih dan lancar untuk mengalirkan air berlebih."
+        }
+    ]
+};
+
 // ===========================================
 // MODUL 3: Manfaat Informasi Iklim bagi Petani
 // ===========================================
@@ -372,6 +414,7 @@ export const quizData: Record<string, MultiQuiz> = {
     "2-1": quiz2_1,
     "2-2": quiz2_2,
     "2-3": quiz2_3,
+    "2-4": quiz2_4,
     "3-1": quiz3_1,
     "3-2": quiz3_2,
     "3-3": quiz3_3,

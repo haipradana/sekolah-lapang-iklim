@@ -4,14 +4,14 @@ import { FarmerTipsCard } from '@/components/common/FarmerTipsCard';
 
 export function SeasonZoneCards() {
   const zomData = [
-    { code: "117", color: "bg-green-600", locations: "Kulon Progo (barat)", textColor: "text-white" },
-    { code: "121", color: "bg-yellow-300", locations: "Sleman (utara)", textColor: "text-gray-800" },
-    { code: "136", color: "bg-pink-300", locations: "Sleman (tengah)", textColor: "text-gray-800" },
-    { code: "138", color: "bg-pink-200", locations: "Sleman & Kota Yogyakarta", textColor: "text-gray-800" },
-    { code: "139", color: "bg-amber-600", locations: "Kulon Progo & Sleman (barat)", textColor: "text-white" },
-    { code: "140", color: "bg-amber-400", locations: "Bantul & Kulon Progo", textColor: "text-gray-800" },
-    { code: "141", color: "bg-lime-200", locations: "Bantul & Gunung Kidul (barat)", textColor: "text-gray-800" },
-    { code: "142", color: "bg-lime-300", locations: "Gunung Kidul (selatan)", textColor: "text-gray-800" },
+    { code: "268", color: "bg-blue-200", locations: "Kulon Progo (barat laut)", textColor: "text-gray-800" },
+    { code: "269", color: "bg-orange-400", locations: "Sleman (utara)", textColor: "text-gray-800" },
+    { code: "270", color: "bg-yellow-300", locations: "Kulon Progo & Sleman (tengah)", textColor: "text-gray-800" },
+    { code: "271", color: "bg-pink-200", locations: "Kota Yogyakarta & Sleman (selatan)", textColor: "text-gray-800" },
+    { code: "272", color: "bg-lime-300", locations: "Sleman (timur) & Prambanan", textColor: "text-gray-800" },
+    { code: "273", color: "bg-green-600", locations: "Kulon Progo (barat)", textColor: "text-white" },
+    { code: "274", color: "bg-cyan-400", locations: "Bantul & Gunungkidul (barat)", textColor: "text-gray-800" },
+    { code: "275", color: "bg-blue-300", locations: "Gunungkidul (tengah-selatan)", textColor: "text-gray-800" },
   ];
 
   return (
@@ -43,7 +43,7 @@ export function SeasonZoneCards() {
             <div>
               <h3 className="font-semibold text-foreground text-base mb-2">Contoh Kasus Nyata</h3>
               <p className="text-base text-muted-foreground mb-2">
-                Pak Tani di Bantul timur (ZOM 141) dan Bu Tani di Bantul barat (ZOM 140) bertetangga kecamatan, tapi prakiraan awal musim hujan mereka <strong className="text-foreground">bisa berbeda 1-2 dasarian</strong>.
+                Pak Tani di Bantul (ZOM 274) dan Bu Tani di Gunungkidul selatan (ZOM 275) bertetangga kecamatan, tapi prakiraan awal musim hujan mereka <strong className="text-foreground">bisa berbeda 1-2 dasarian</strong>.
               </p>
               <p className="text-base text-muted-foreground">
                 <strong className="text-foreground">Implikasinya:</strong> Jika keduanya tanam bersamaan hanya berdasarkan info kabupaten, salah satu bisa tanam terlalu cepat atau terlambat. Dengan tahu ZOM masing-masing, waktu tanam bisa lebih optimal.
@@ -84,8 +84,8 @@ export function SeasonZoneCards() {
         <CardContent className="p-4">
           <div className="flex justify-center">
             <img 
-              src="/img/2_3_zom/zom-diy.png" 
-              alt="Peta Zona Musim (ZOM) Provinsi D.I. Yogyakarta - BMKG"
+              src="/img/2_3_zom/ZOM-revisi.jpeg" 
+              alt="Peta Zona Musim (ZOM) Provinsi D.I. Yogyakarta - BMKG (Normal 1991-2020)"
               className="w-full sm:max-w-md lg:max-w-lg h-auto rounded-lg"
             />
           </div>
@@ -127,23 +127,23 @@ export function SeasonZoneCards() {
           <div className="space-y-3 text-base">
             <div className="flex gap-2">
               <span className="font-medium text-foreground min-w-[100px]">Kulon Progo</span>
-              <span className="text-muted-foreground">ZOM 117, 139, 140</span>
+              <span className="text-muted-foreground">ZOM 268, 270, 273</span>
             </div>
             <div className="flex gap-2">
               <span className="font-medium text-foreground min-w-[100px]">Sleman</span>
-              <span className="text-muted-foreground">ZOM 121, 136, 138, 139</span>
+              <span className="text-muted-foreground">ZOM 269, 270, 271, 272</span>
             </div>
             <div className="flex gap-2">
               <span className="font-medium text-foreground min-w-[100px]">Kota Yogya</span>
-              <span className="text-muted-foreground">ZOM 138</span>
+              <span className="text-muted-foreground">ZOM 271</span>
             </div>
             <div className="flex gap-2">
               <span className="font-medium text-foreground min-w-[100px]">Bantul</span>
-              <span className="text-muted-foreground">ZOM 140, 141</span>
+              <span className="text-muted-foreground">ZOM 274</span>
             </div>
             <div className="flex gap-2">
-              <span className="font-medium text-foreground min-w-[100px]">Gunung Kidul</span>
-              <span className="text-muted-foreground">ZOM 141, 142</span>
+              <span className="font-medium text-foreground min-w-[100px]">Gunungkidul</span>
+              <span className="text-muted-foreground">ZOM 272, 274, 275</span>
             </div>
           </div>
         </CardContent>

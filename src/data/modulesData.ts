@@ -277,6 +277,45 @@ export const modulesData: Module[] = [
           explanation: "Batas ZOM berdasarkan pola curah hujan, bukan batas administrasi. Sehingga satu kabupaten bisa memiliki beberapa ZOM dengan awal musim yang berbeda."
         },
         imageUrl: "/img/thumbnail/2_3-thumbnail.webp"
+      },
+      {
+        id: "2-4",
+        slug: "4-cara-membaca-peta-bmkg",
+        title: "Cara Membaca Peta BMKG",
+        summary: "Panduan praktis membaca peta Curah Hujan (CH) dan Sifat Hujan (SH) dari BMKG untuk perencanaan pertanian.",
+        sections: [
+          {
+            title: "Mengenal Peta Prakiraan BMKG",
+            content: "BMKG menerbitkan peta prakiraan iklim untuk membantu petani memahami kondisi curah hujan. Ada dua jenis peta utama: Peta CH (Curah Hujan) yang menunjukkan jumlah hujan dalam mm, dan Peta SH (Sifat Hujan) yang menunjukkan perbandingan dengan rata-rata normal.",
+            imageUrl: "/img/2_4_peta-bmkg/ch-april-2026.jpg"
+          },
+          {
+            title: "Peta CH (Curah Hujan)",
+            content: "CH adalah Curah Hujan, yaitu jumlah air hujan dalam milimeter (mm). Kategori: RENDAH (0-100 mm) warna coklat-oranye, MENENGAH (101-200 mm) warna kuning, TINGGI (201-500 mm) warna hijau muda, SANGAT TINGGI (>500 mm) warna hijau tua."
+          },
+          {
+            title: "Peta SH (Sifat Hujan)",
+            content: "SH adalah Sifat Hujan, perbandingan curah hujan dengan rata-rata 30 tahun dalam persen. BAWAH NORMAL (<85%) warna coklat, NORMAL (85-115%) warna kuning, ATAS NORMAL (>115%) warna hijau."
+          },
+          {
+            title: "Implikasi untuk Pertanian",
+            content: "CH Rendah: siapkan irigasi, tanam varietas tahan kering. CH Tinggi: perbaiki drainase, waspadai banjir. SH Bawah Normal: risiko kekeringan. SH Atas Normal: risiko banjir dan hama."
+          }
+        ],
+        quiz: {
+          id: "q2-4",
+          type: "multiple-choice",
+          question: "Jika peta CH menunjukkan warna kuning (101-150 mm), apa artinya?",
+          options: [
+            "Curah hujan sangat tinggi",
+            "Curah hujan menengah",
+            "Curah hujan rendah",
+            "Tidak ada hujan"
+          ],
+          correctAnswer: "Curah hujan menengah",
+          explanation: "Warna kuning pada peta CH menunjukkan curah hujan 101-150 mm yang termasuk kategori MENENGAH. Hujan cukup untuk pertanian."
+        },
+        imageUrl: "/img/thumbnail/2_4-thumbnail.webp"
       }
     ]
   },

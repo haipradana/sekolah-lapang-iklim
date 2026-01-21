@@ -11,6 +11,7 @@ import { ClimatologyToolsCards } from '@/components/content/ClimatologyToolsCard
 import { DasarianCards } from '@/components/content/DasarianCards';
 import { RainfallNatureCards } from '@/components/content/RainfallNatureCards';
 import { SeasonZoneCards } from '@/components/content/SeasonZoneCards';
+import { ReadingBMKGMapCards } from '@/components/content/ReadingBMKGMapCards';
 import { PlantingScheduleCards } from '@/components/content/PlantingScheduleCards';
 import { MitigationCards } from '@/components/content/MitigationCards';
 import { BMKGAccessCards } from '@/components/content/BMKGAccessCards';
@@ -87,6 +88,8 @@ export default function SubmodulePage() {
         return <RainfallNatureCards />;
       case '3-zona-musim':
         return <SeasonZoneCards />;
+      case '4-cara-membaca-peta-bmkg':
+        return <ReadingBMKGMapCards />;
       case '1-jadwal-pola-tanam':
         return <PlantingScheduleCards />;
       case '2-mitigasi-banjir-kekeringan-hama':
