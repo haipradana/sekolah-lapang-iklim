@@ -13,7 +13,9 @@ import {
   Home,
   BookOpen,
   Trophy,
-  Info
+  Info,
+  ClipboardList,
+  ClipboardCheck
 } from 'lucide-react';
 import { useState } from 'react';
 import {
@@ -115,6 +117,21 @@ export const Sidebar = ({ className, onLinkClick }: SidebarProps) => {
         {/* Divider */}
         <div className="my-4 border-t border-sidebar-border" />
 
+        {/* Pre-Test */}
+        <Link 
+          to="/pretest" 
+          onClick={onLinkClick}
+          className={cn(
+            "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors mb-2",
+            isActive('/pretest') 
+              ? "bg-amber-500/20 text-amber-500" 
+              : "text-sidebar-foreground/80 hover:bg-amber-500/10 hover:text-amber-500"
+          )}
+        >
+          <ClipboardList className="h-4 w-4" />
+          <span className="font-medium">Pre-Test</span>
+        </Link>
+
         {/* Module Navigation */}
         <p className="px-3 text-xs font-semibold uppercase tracking-wider text-sidebar-muted mb-2">
           Materi Pembelajaran
@@ -191,6 +208,21 @@ export const Sidebar = ({ className, onLinkClick }: SidebarProps) => {
             </Collapsible>
           );
         })}
+
+        {/* Post-Test */}
+        <Link 
+          to="/posttest" 
+          onClick={onLinkClick}
+          className={cn(
+            "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors mt-2",
+            isActive('/posttest') 
+              ? "bg-green-500/20 text-green-500" 
+              : "text-sidebar-foreground/80 hover:bg-green-500/10 hover:text-green-500"
+          )}
+        >
+          <ClipboardCheck className="h-4 w-4" />
+          <span className="font-medium">Post-Test</span>
+        </Link>
       </div>
     </aside>
   );

@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 interface Progress {
   completedSubmodules: string[];
   quizScores: Record<string, number>;
+  pretestScore?: number;
+  posttestScore?: number;
 }
 
 const STORAGE_KEY = 'sekolah-lapang-iklim-progress';
@@ -68,6 +70,31 @@ export const useProgress = () => {
     saveProgress(newProgress);
   };
 
+  // Pretest & Posttest functions
+  const savePretestScore = (score: number) => {
+    const newProgress = {
+      ...progress,
+      pretestScore: score
+    };
+    saveProgress(newProgress);
+  };
+
+  const savePosttestScore = (score: number) => {
+    const newProgress = {
+      ...progress,
+      posttestScore: score
+    };
+    saveProgress(newProgress);
+  };
+
+  const getPretestScore = (): number | null => {
+    return progress.pretestScore ?? null;
+  };
+
+  const getPosttestScore = (): number | null => {
+    return progress.posttestScore ?? null;
+  };
+
   return {
     progress,
     markSubmoduleComplete,
@@ -75,6 +102,10 @@ export const useProgress = () => {
     isSubmoduleComplete,
     getQuizScore,
     getOverallProgress,
-    resetProgress
+    resetProgress,
+    savePretestScore,
+    savePosttestScore,
+    getPretestScore,
+    getPosttestScore
   };
 };

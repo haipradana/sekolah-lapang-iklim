@@ -10,6 +10,8 @@ import ModuleOverview from "./pages/ModuleOverview";
 import SubmodulePage from "./pages/SubmodulePage";
 import Progress from "./pages/Progress";
 import About from "./pages/About";
+import PreTestPage from "./pages/PreTestPage";
+import PostTestPage from "./pages/PostTestPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,9 +25,11 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/pretest" element={<PreTestPage />} />
           <Route path="/modul" element={<ModuleList />} />
           <Route path="/modul/:moduleId" element={<ModuleOverview />} />
           <Route path="/modul/:moduleId/:submoduleSlug" element={<SubmodulePage />} />
+          <Route path="/posttest" element={<PostTestPage />} />
           <Route path="/progres" element={<Progress />} />
           <Route path="/tentang" element={<About />} />
           <Route path="*" element={<NotFound />} />
