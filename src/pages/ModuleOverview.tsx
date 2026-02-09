@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { SubmoduleCard } from '@/components/common/SubmoduleCard';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
@@ -17,9 +17,14 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export default function ModuleOverview() {
   const { moduleId } = useParams();
-  const { isSubmoduleComplete } = useProgress();
+  const { isSubmoduleComplete, isPretestCompleted } = useProgress();
   
   const module = getModuleById(Number(moduleId));
+
+  // Redirect ke pre-test jika belum dikerjakan
+  if (!isPretestCompleted()) {
+    return <Navigate to="/pretest" replace />;
+  }
 
   if (!module) {
     return (

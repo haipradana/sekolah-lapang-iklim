@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
@@ -32,7 +32,7 @@ import {
 export default function SubmodulePage() {
   const { moduleId, submoduleSlug } = useParams();
   const navigate = useNavigate();
-  const { markSubmoduleComplete, isSubmoduleComplete, saveQuizScore } = useProgress();
+  const { markSubmoduleComplete, isSubmoduleComplete, saveQuizScore, isPretestCompleted } = useProgress();
   const [showStickyCTA, setShowStickyCTA] = useState(false);
   const [quizCompleted, setQuizCompleted] = useState(false);
 
@@ -44,6 +44,11 @@ export default function SubmodulePage() {
   const lastModule = modulesData[modulesData.length - 1];
   const lastSubmodule = lastModule?.submodules[lastModule.submodules.length - 1];
   const isFinalSubmodule = module?.id === lastModule?.id && submodule?.slug === lastSubmodule?.slug;
+
+  // Redirect ke pre-test jika belum dikerjakan
+  if (!isPretestCompleted()) {
+    return <Navigate to="/pretest" replace />;
+  }
 
   // Scroll to top when submodule changes
   useEffect(() => {

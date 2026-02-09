@@ -7,28 +7,84 @@ interface Progress {
   posttestScore?: number;
 }
 
+interface StoredProgress {
+  data: Progress;
+  timestamp: number; // waktu pertama kali disimpan
+}
+
 const STORAGE_KEY = 'sekolah-lapang-iklim-progress';
+const EXPIRY_DURATION = 24 * 60 * 60 * 1000; // 24 jam dalam milliseconds
+
+const getInitialProgress = (): Progress => ({
+  completedSubmodules: [],
+  quizScores: {}
+});
 
 export const useProgress = () => {
-  const [progress, setProgress] = useState<Progress>({
-    completedSubmodules: [],
-    quizScores: {}
-  });
+  const [progress, setProgress] = useState<Progress>(getInitialProgress());
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
       try {
-        setProgress(JSON.parse(stored));
+        const parsed = JSON.parse(stored);
+        const now = Date.now();
+
+        // Cek apakah format baru (dengan timestamp) atau format lama
+        if (parsed.timestamp && parsed.data) {
+          // Format baru dengan timestamp
+          const storedProgress = parsed as StoredProgress;
+
+          // Cek apakah sudah expired (lebih dari 24 jam)
+          if (now - storedProgress.timestamp > EXPIRY_DURATION) {
+            // Data expired, hapus dan reset
+            localStorage.removeItem(STORAGE_KEY);
+            setProgress(getInitialProgress());
+          } else {
+            // Data masih valid
+            setProgress(storedProgress.data);
+          }
+        } else {
+          // Format lama tanpa timestamp, migrasi ke format baru
+          const oldProgress = parsed as Progress;
+          setProgress(oldProgress);
+
+          // Simpan ulang dengan format baru
+          const newStoredProgress: StoredProgress = {
+            data: oldProgress,
+            timestamp: now
+          };
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(newStoredProgress));
+        }
       } catch (e) {
         console.error('Failed to parse progress:', e);
+        localStorage.removeItem(STORAGE_KEY);
       }
     }
   }, []);
 
   const saveProgress = (newProgress: Progress) => {
     setProgress(newProgress);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(newProgress));
+
+    // Ambil timestamp yang sudah ada, atau buat baru jika belum ada
+    const stored = localStorage.getItem(STORAGE_KEY);
+    let timestamp = Date.now();
+
+    if (stored) {
+      try {
+        const parsed: StoredProgress = JSON.parse(stored);
+        timestamp = parsed.timestamp; // Gunakan timestamp awal
+      } catch (e) {
+        // Jika gagal parse, gunakan timestamp baru
+      }
+    }
+
+    const storedProgress: StoredProgress = {
+      data: newProgress,
+      timestamp
+    };
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(storedProgress));
   };
 
   const markSubmoduleComplete = (submoduleId: string) => {
@@ -66,8 +122,8 @@ export const useProgress = () => {
   };
 
   const resetProgress = () => {
-    const newProgress = { completedSubmodules: [], quizScores: {} };
-    saveProgress(newProgress);
+    localStorage.removeItem(STORAGE_KEY);
+    setProgress(getInitialProgress());
   };
 
   // Pretest & Posttest functions
@@ -95,6 +151,10 @@ export const useProgress = () => {
     return progress.posttestScore ?? null;
   };
 
+  const isPretestCompleted = (): boolean => {
+    return progress.pretestScore !== undefined;
+  };
+
   return {
     progress,
     markSubmoduleComplete,
@@ -106,6 +166,7 @@ export const useProgress = () => {
     savePretestScore,
     savePosttestScore,
     getPretestScore,
-    getPosttestScore
+    getPosttestScore,
+    isPretestCompleted
   };
 };

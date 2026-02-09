@@ -5,7 +5,8 @@ import { modulesData } from '@/data/modulesData';
 import { useProgress } from '@/hooks/useProgress';
 
 export default function ModuleList() {
-  const { isSubmoduleComplete } = useProgress();
+  const { isSubmoduleComplete, isPretestCompleted } = useProgress();
+  const pretestDone = isPretestCompleted();
 
   const getModuleCompletedCount = (moduleId: number) => {
     const module = modulesData.find(m => m.id === moduleId);
@@ -39,6 +40,7 @@ export default function ModuleList() {
               imageUrl={module.imageUrl}
               submodulesCount={module.submodules.length}
               completedCount={getModuleCompletedCount(module.id)}
+              isLocked={!pretestDone}
             />
           ))}
         </div>
